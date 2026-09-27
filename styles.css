@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Press+Start+2P&display=swap');
+
+:root {
+    --magenta: #FF00FF;
+    --cyan: #00FFFF;
+    --window-bg: rgba(212, 197, 249, 0.35); /* Mais transparente ainda */
+    --title-bg: rgba(74, 59, 140, 0.65); /* Barra de título com transparência */
+    --text-dark: #1a1a2e;
+    --text-light: #FFFFFF;
+    --grid-color: rgba(255, 255, 255, 0.25);
+    --btn-bg: #b8a6e8;
+    --btn-border: #4a3b8c;
+    --accent-orange: #ff5e00;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--magenta), var(--cyan));
+    background-attachment: fixed;
+    color: var(--text-dark);
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px;
+}
+
+/* Grade (Grid) Sobreposta */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+    width: 100%;
+    max-width: 900px;
+    justify-content: center;
+}
+
+/* Janela Flutuante Y2K Neo-Retro Glass */
+.y2k-window {
+    background: var(--window-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid var(--title-bg);
+    border-radius: 8px;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px;
+    overflow: hidden;
+}
+
+.title-bar {
+    background: var(--title-bg);
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--title-bg);
+}
+
+.title-bar h2 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--text-light);
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.title-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* Botões da barra de título minimalistas com cores neon/Y2K */
+.btn-sys {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+}
+
+.btn-min { background-color: var(--cyan); }
+.btn-max { background-color: var(--magenta); }
+.btn-close { background-color: #8a2be2; }
+
+.window-content {
+    padding: 25px 20px;
+    flex: 1;
+}
+
+.pixel-font {
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Pomodoro */
+.timer-display {
+    font-size: 3.5rem;
+    text-align: center;
+    margin: 25px 0;
+    color: var(--text-light);
+    text-shadow: 3px 3px 0px var(--magenta), -1px -1px 0px var(--title-bg);
+}
+
+/* Botões de Ação Internos */
+.btn-action {
+    background: var(--btn-bg);
+    border: 2px solid var(--btn-border);
+    border-radius: 6px;
+    padding: 12px 18px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.65rem;
+    cursor: pointer;
+    margin: 6px;
+    color: var(--text-dark);
+    box-shadow: 4px 4px 0px var(--btn-border);
+    transition: all 0.1s ease-in-out;
+}
+
+.btn-action:hover {
+    background: var(--magenta);
+    color: var(--text-light);
+    border-color: var(--title-bg);
+    box-shadow: 4px 4px 0px var(--title-bg);
+}
+
+.btn-action:active {
+    box-shadow: 0px 0px 0px var(--btn-border);
+    transform: translate(4px, 4px);
+}
+
+/* Destaque para botões principais */
+#start-btn, #add-task-btn {
+    border-color: var(--accent-orange);
+    box-shadow: 4px 4px 0px var(--accent-orange);
+}
+#start-btn:hover, #add-task-btn:hover {
+    background: var(--accent-orange);
+    border-color: var(--title-bg);
+    box-shadow: 4px 4px 0px var(--title-bg);
+}
+
+/* Tarefas */
+.task-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.task-input-group input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 2px solid var(--btn-border);
+    border-radius: 6px;
+    background: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+.task-input-group input:focus {
+    border-color: var(--magenta);
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05), 0 0 8px rgba(255, 0, 255, 0.4);
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 260px;
+    overflow-y: auto;
+    border: 2px solid var(--btn-border);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.6); /* Translucido para tarefas */
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px dashed var(--btn-border);
+    gap: 12px;
+}
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-text {
+    flex: 1;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.task-completed .task-text {
+    text-decoration: line-through;
+    color: #666;
+}
+
+/* Checkbox Customizado */
+.custom-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--magenta); /* Cor magenta clássica do Y2K quando marcado */
+}
+
+/* Scrollbar Y2K customizada para a lista */
+.task-list::-webkit-scrollbar {
+    width: 10px;
+    background: rgba(255,255,255,0.4);
+}
+.task-list::-webkit-scrollbar-thumb {
+    background: var(--title-bg);
+    border-radius: 10px;
+}

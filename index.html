@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neo-Retro Y2K Study Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Pomodoro Window -->
+        <div class="y2k-window">
+            <div class="title-bar">
+                <h2>POMODORO.EXE</h2>
+                <div class="title-buttons">
+                    <div class="btn-sys btn-min" title="Minimizar"></div>
+                    <div class="btn-sys btn-max" title="Maximizar"></div>
+                    <div class="btn-sys btn-close" title="Fechar"></div>
+                </div>
+            </div>
+            <div class="window-content" style="text-align: center;">
+                <div id="mode-text" class="pixel-font" style="font-size: 0.8rem; color: var(--title-bg); font-weight: bold;">MODO: FOCO</div>
+                
+                <div id="time-display" class="timer-display pixel-font">25:00</div>
+                
+                <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                    <button id="start-btn" class="btn-action">START</button>
+                    <button id="pause-btn" class="btn-action">PAUSE</button>
+                    <button id="reset-btn" class="btn-action">RESET</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tasks Window -->
+        <div class="y2k-window">
+            <div class="title-bar">
+                <h2>METAS_E_STREAK.EXE</h2>
+                <div class="title-buttons">
+                    <div class="btn-sys btn-min" title="Minimizar"></div>
+                    <div class="btn-sys btn-max" title="Maximizar"></div>
+                    <div class="btn-sys btn-close" title="Fechar"></div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <span class="pixel-font" style="font-size: 0.75rem; color: var(--title-bg);">MINHAS METAS</span>
+                    <span class="pixel-font" style="font-size: 0.75rem; color: var(--magenta); text-shadow: 1px 1px 0px rgba(255,255,255,0.8);">
+                        STREAK: <span id="streak-display">0</span>
+                    </span>
+                </div>
+
+                <div class="task-input-group">
+                    <input type="text" id="task-input" placeholder="Nova atividade (ex: Estudar HTML)...">
+                    <button id="add-task-btn" class="btn-action" style="margin: 0; padding: 10px 12px;">ADD</button>
+                </div>
+
+                <ul id="task-list" class="task-list">
+                    <!-- Tarefas renderizadas via JS -->
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
